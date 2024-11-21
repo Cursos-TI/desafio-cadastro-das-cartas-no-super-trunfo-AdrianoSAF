@@ -11,8 +11,8 @@ int main() {
     
     //Definição das variáveis utilizadas no programa. 
     char city_cod[4], city_name[30]; //Valor String (uma cadei de caracteres)
-    float city_population, city_area, city_pib; //Pronto Flutuante
-    int city_turistic_point; //inteiro
+    float city_area, city_pib, densi_population, pib_per; //Pronto Flutuante
+    int city_population, city_turistic_point; //inteiro
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -26,7 +26,7 @@ int main() {
     scanf(" %3[^\n]s", city_cod);
 
     printf("Digite a população da cidade:\n");
-    scanf(" %f",&city_population);
+    scanf(" %d",&city_population);
 
     printf("Digite a área da cidade:\n");
     scanf(" %f",&city_area);
@@ -37,19 +37,23 @@ int main() {
     printf("Digite o número de pontos turísticos da cidade:\n");
     scanf("%d", &city_turistic_point);
 
-
+    // Calculos
+    densi_population = (float) city_population / city_area;
+    pib_per = (float) city_pib / city_population;
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
     printf("\nInformações da carta %s:\n\n\
      Nome: %s\n\
      Código: %s\n\
-     População: %f\n\
+     População: %d\n\
      Área: %f\n\
      PIB: %f\n\
-     Pontos turisticos: %d", \
-     city_name, city_name, city_cod, city_population, city_area, city_pib, city_turistic_point\
-     );//Variáveis
+     Pontos turisticos: %d\n\
+     Dencidade Populacional: %f\n\
+     PIB Per Capita: %f",\
+     city_name, city_name, city_cod, city_population, city_area, city_pib, city_turistic_point,\
+     densi_population, pib_per);//Variáveis
 
     return 0;
 }
